@@ -1,0 +1,57 @@
+{% extends 'case001_base.html' %}
+ 
+{% block title %}数据分析{% endblock %}
+ 
+{% block content %}
+    <h3>本视图将展示相关基础数据与中医证型的统计占比关系。</h3>
+    <p>以证型“肝郁气滞”为例, 展示年龄段这一参数在证型中的占比：</p>
+    {% if statistic001 %}
+        <div class="table-responsive">
+        <table class="table table-hover">
+        <thead>
+        <tr class="success">
+            <th>年龄段</th>
+            <th>样本数量</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for key, value in statistic001.items %}
+                <tr>
+                    <td>{{ key }}</td>
+                    <td>{{ value }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+
+        <canvas id="myChart" width="200" height="40"></canvas>
+        <script>
+            data = {
+                datasets: [{
+                    data: [10, 20, 50, 20],
+                    backgroundColor: [
+                        '#00FA9A',
+                        '#1E90FF',
+                        '#D2691E',
+                        '#DB7093'
+                    ]
+                }],
+
+                // These labels appear in the legend and in the tooltips when hovering different arcs
+                labels: [
+                    '20以下',
+                    '20~29',
+                    '30~39',
+                    '40以上'
+                ]
+            };
+            var ctx = document.getElementById("myChart");
+            var myChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: data,
+                {#options: options#}
+            });
+        </script>
+        </div>
+    {% endif %}
+{% endblock %}

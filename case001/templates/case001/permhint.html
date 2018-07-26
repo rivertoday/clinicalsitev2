@@ -1,0 +1,12 @@
+{% extends 'case001_base.html' %}
+
+{% block title %}数据采集{% endblock %}
+
+{% block content %}
+
+    {% if not perms.case001 %}
+      <p>对不起,您没有权限操作本项目相关数据, <br />
+          请联系系统管理人员以获取对应权限!</p>
+    {% endif %}
+
+{% endblock %}

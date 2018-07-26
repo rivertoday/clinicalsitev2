@@ -1,0 +1,24 @@
+{% extends 'home_base.html' %}
+ 
+{% block title %}中医妇产科临床流调系统{% endblock %}
+ 
+{% block content %}
+
+    <p>项目入口</p>
+<ul class="nav nav-pills nav-stacked" style="max-width: 260px;">
+    {% for prj in myprjs %}
+        {% if prj.status == '进行中' %}
+            <li class="active"><a href="{{ prj.linkurl }}">{{ prj.name }}<span class="badge pull-right">{{ prj.status }}</span></a></li>
+        {% else %}
+            <li><a href="{{ prj.linkurl }}">{{ prj.name }}<span class="badge pull-right">{{ prj.status }}</span></a></li>
+        {% endif %}
+    {% endfor %}
+    {% comment %}<li class="active"><a href="/case001/about">产后缺乳症<span class="badge pull-right">进行中</span></a></li>
+    <li><a href="#">经前期紧张综合征<span class="badge pull-right">计划中</span></a></li>
+    <li><a href="#">子宫内膜异位症<span class="badge pull-right">计划中</span></a></li>
+    <li><a href="#">多囊卵巢综合征<span class="badge pull-right">计划中</span></a></li>
+    <li><a href="#">子宫肌瘤<span class="badge pull-right">计划中</span></a></li>
+    <li><a href="#">……</a></li>{% endcomment %}
+</ul>
+
+{% endblock %}

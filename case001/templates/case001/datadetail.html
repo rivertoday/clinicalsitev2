@@ -1,0 +1,74 @@
+{% extends 'case001_base.html' %}
+ 
+{% block title %}数据详情{% endblock %}
+
+
+
+{% block content %}
+    <style type="text/css">
+        #myinfodiv {background-color: #dedef8;box-shadow:
+             inset 1px -1px 1px #444, inset -1px 1px 1px #444;}
+    </style>
+
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#base" role="tab" data-toggle="tab">基本信息</a></li>
+        <li role="presentation"><a href="#preg" role="tab" data-toggle="tab">孕产情况</a></li>
+        <li role="presentation"><a href="#breed" role="tab" data-toggle="tab">哺乳情况</a></li>
+        <li role="presentation"><a href="#lab" role="tab" data-toggle="tab">乳汁分析</a></li>
+        <li role="presentation"><a href="#conc" role="tab" data-toggle="tab">中医诊断</a></li>
+    </ul>
+
+    <!-- 面板区 -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="base">
+            <table>
+            {% for key,value in baseinfo.items %}
+                <tr border-top-width="thin">
+                    <td>{{ key }}: </td>
+                    <td>{{ value }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="preg">
+            <table>
+                {% for key,value in preginfo.items %}
+                    <tr border-top-width="thin">
+                        <td>{{ key }}: </td>
+                        <td>{{ value }}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="breed">
+            <table>
+                {% for key,value in breedinfo.items %}
+                    <tr border-top-width="thin">
+                        <td>{{ key }}: </td>
+                        <td>{{ value }}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="lab">
+            <table>
+                {% for key,value in labinfo.items %}
+                    <tr border-top-width="thin">
+                        <td>{{ key }}: </td>
+                        <td>{{ value }}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="conc">
+            <table>
+                {% for key,value in thconinfo.items %}
+                    <tr border-top-width="thin">
+                        <td>{{ key }}: </td>
+                        <td>{{ value }}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+        </div>
+    </div>
+{% endblock %}
