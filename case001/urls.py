@@ -16,4 +16,5 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('bingo/', views.bingo, name='bingo'),
     path('permhint', views.permhint, name='permhint'),
+    path('suggestinfo1', views.suggestinfo1, name='suggestinfo1'),
 ]

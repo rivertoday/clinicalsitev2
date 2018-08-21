@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import get_object_or_404, render, render_to_response
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.http import Http404
 from django.urls import reverse
 from django.contrib.auth.decorators import permission_required
@@ -9,6 +9,7 @@ from collections import OrderedDict
 
 from .forms import GeneralInfoModelForm, PregnantInfoModelForm, LabInfoModelForm, BreedingInfoModelForm, TherapyModelForm
 from .models import ArchivesCases, PregnantRecord, BreedingInvest, LabAnalysis, TherapyConclusion
+import json
 
 # Create your views here.
 def permhint(request):
@@ -343,3 +344,24 @@ def bingo(request):
 
 def index(request):
     return render(request, 'case001/index.html')
+
+@permission_required('case001.case001_operation', login_url="/case001/permhint")
+def suggestinfo1(request):
+    if request.method == 'POST':
+        hint = ''
+        hint = request.POST.get('keyword')
+        #print(">>>suggest input keyword is: " % hint)
+        caseList = ArchivesCases.objects.filter(acid__icontains=hint)
+        caseResult = []
+        for uu in caseList:
+            tmp = {}
+            tmp['title'] = uu.acid
+            caseResult.append(tmp)
+        return HttpResponse(json.dumps({
+            "data": caseResult
+        }))
+    else:
+        return HttpResponse(json.dumps({
+            "data":""
+        }))
+
