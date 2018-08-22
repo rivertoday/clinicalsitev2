@@ -1,25 +1,62 @@
 {% extends 'case001_base.html' %}
- 
+
 {% block title %}数据展示{% endblock %}
- 
+
 {% block content %}
     <style type="text/css">
-        *{margin:0;padding:0;list-style-type:none;}
-        a,img{border:0;}
-        .demo{width:720px;margin:30px auto; align: left}
-        .demo li{float:left;}
-        .text{width:429px;height:22px;padding:4px 7px;padding:6px 7px 2px\9;font:16px arial;border:1px solid #cdcdcd;border-color:#9a9a9a #cdcdcd #cdcdcd #9a9a9a;vertical-align:top;outline:none;margin:0 5px 0 0;}
-        .button{width:95px;height:22px;padding:0;padding-top:2px\9;border:0;background-position:0 -35px;background-color:#ddd;cursor:pointer}
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        a, img {
+            border: 0;
+        }
+
+        .demo {
+            width: 720px;
+            margin: 30px auto;
+            align: left
+        }
+
+        .demo li {
+            float: left;
+        }
+
+        .text {
+            width: 429px;
+            height: 22px;
+            padding: 4px 7px;
+            padding: 6px 7px 2px \9;
+            font: 16px arial;
+            border: 1px solid #cdcdcd;
+            border-color: #9a9a9a #cdcdcd #cdcdcd #9a9a9a;
+            vertical-align: top;
+            outline: none;
+            margin: 0 5px 0 0;
+        }
+
+        .button {
+            width: 95px;
+            height: 22px;
+            padding: 0;
+            padding-top: 2px \9;
+            border: 0;
+            background-position: 0 -35px;
+            background-color: #ddd;
+            cursor: pointer
+        }
     </style>
 
     <script type="text/javascript">
         $.ajaxSetup({
-            data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+            data: {csrfmiddlewaretoken: '{{ csrf_token }}'},
         });
-        $(function(){
+        $(function () {
             $("#rtt").bigAutocomplete({
-                width:543,
-                url:'/case001/suggestinfo1',
+                width: 543,
+                url: '/case001/suggestinfo1',
                 {% comment %}data:[{title:"中国好声音"},
                     {title:"中国移动网上营业厅"},
                     {title:"中国银行"},
@@ -30,62 +67,89 @@
                     {title:"中国工商银行"},
                     {title:"中国好声音第二期"},
                     {title:"中国地图"}],{% endcomment %}
-                callback:function(data){
-                    alert(data.title);
+                callback: function (data) {
+                    //alert(data.title);
+                    document.getElementById("rtt").value = data.title;
                 }
             });
-        })
+
+            {% comment %}$("#searchform").submit(function () {
+                var acidname = $("#rtt").val();
+                //alert(">>>" + acidname);
+                if (!acidname) {
+                    acidname = 'all';
+                }
+                $.ajax({
+                    url: "/case001/datalist/",
+                    type: "POST",
+                    data: {
+                        acidname: acidname,
+                    },
+                    success: function (rdata) {
+                        //rdata = JSON.parse(rdata);
+                        $("#myarchivelist").html(rdata);
+                        $("#rtt").val(acidname)
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert(errorThrown);
+                    }
+                });
+                return false;
+            }){% endcomment %}
+        });
+
     </script>
 
     <div class="demo">
-        <form action="" method="post" name="searchform" id="searchform" class="searchinfo">
+        <form role="form" method='get' action="/case001/datalist">
+{#            {% csrf_token %}#}
             <ul>
-                <li><label>采集对象人员信息：</label></li>
-                <li><input type="text" id="rtt" value="" class="text" /></li>
-                <li><input type="button" value="检索" class="button" /></li>
+                <li><label>采集对象人员姓名：</label></li>
+                <li><input type="text" id="rtt" name="rtt" value="{{ searchname }}"  class="text"/></li>
+                <li><input type="submit" value="检索" class="button"/></li>
             </ul>
         </form>
     </div>
 
-    <br />
+    <br/>
 
     <div>
     {% if latest_archives_list %}
-        <table class="table table-striped">
-        <caption>调查数据</caption>
-        <thead>
-        <tr>
-            <th>姓名</th>
-            <th>人口学ID</th>
-            <th>年龄</th>
-            <th>性别</th>
-            <th>身高</th>
-            <th>体重</th>
-            <th>体温</th>
-            <th>脉搏</th>
-            <th>数据补充</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for archive in latest_archives_list %}
-        <tr>
-            <td><a href="/case001/datadetail/{{ archive.id }}/">{{ archive.acid }}</a></td>
-            <td>{{ archive.aid }}</td>
-            <td>{{ archive.acAge }}</td>
-            <td>{{ archive.aSex }}</td>
-            <td>{{ archive.aHeight }}</td>
-            <td>{{ archive.aWeight }}</td>
-            <td>{{ archive.aTemperature }}</td>
-            <td>{{ archive.aPulse }}</td>
-            <td>
-                <a class="btn btn-primary btn-sm"  href="{% url 'case001:datainput1' archive.id %}" >孕产情况</a>
-                <a class="btn btn-success btn-sm"  href="{% url 'case001:datainput2' archive.id %}" >哺乳情况</a>
-                <a class="btn btn-info btn-sm"  href="{% url 'case001:datainput3' archive.id %}" >乳汁分析</a>
-                <a class="btn btn-warning btn-sm"  href="{% url 'case001:datainput4' archive.id %}" >中医诊断</a>
-            </td>
-        </tr>
-        {% endfor %}
-        </tbody>
+        <table class="table table-striped" id="myarchivelist">
+            <caption>调查数据</caption>
+            <thead>
+            <tr>
+                <th>姓名</th>
+                <th>人口学ID</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>身高</th>
+                <th>体重</th>
+                <th>体温</th>
+                <th>脉搏</th>
+                <th>数据补充</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for archive in latest_archives_list %}
+                <tr>
+                    <td><a href="/case001/datadetail/{{ archive.id }}/">{{ archive.acid }}</a></td>
+                    <td>{{ archive.aid }}</td>
+                    <td>{{ archive.acAge }}</td>
+                    <td>{{ archive.aSex }}</td>
+                    <td>{{ archive.aHeight }}</td>
+                    <td>{{ archive.aWeight }}</td>
+                    <td>{{ archive.aTemperature }}</td>
+                    <td>{{ archive.aPulse }}</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="{% url 'case001:datainput1' archive.id %}">孕产情况</a>
+                        <a class="btn btn-success btn-sm" href="{% url 'case001:datainput2' archive.id %}">哺乳情况</a>
+                        <a class="btn btn-info btn-sm" href="{% url 'case001:datainput3' archive.id %}">乳汁分析</a>
+                        <a class="btn btn-warning btn-sm" href="{% url 'case001:datainput4' archive.id %}">中医诊断</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
         </table>
 
         <nav aria-label="Page navigation">
@@ -100,9 +164,9 @@
 
                 {% for pg in latest_archives_list.paginator.page_range %}
                     {% if latest_archives_list.number == pg %}
-                            <li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
+                        <li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
                     {% else %}
-                            <li><a href="?page={{ pg }}">{{ pg }}</a></li>
+                        <li><a href="?page={{ pg }}">{{ pg }}</a></li>
                     {% endif %}
                 {% endfor %}
 
@@ -118,5 +182,5 @@
     {% else %}
         <div class="alert alert-warning">目前尚没有数据！</div>
     {% endif %}
-    </div>
+</div>
 {% endblock %}

@@ -156,7 +156,26 @@ def datainput4(request, people_id):
 
 @permission_required('case001.case001_operation', login_url="/case001/permhint")
 def datalist(request):
-    latest_archives_list = ArchivesCases.objects.all()
+    # if request.method == 'POST':
+    #     acidname = ''
+    #     acidname = request.POST.get('acidname')
+    #     print(">>>acidname: %s" % acidname)
+    #     if acidname == 'all':
+    #         latest_archives_list = ArchivesCases.objects.all()
+    #     else:
+    #         latest_archives_list = ArchivesCases.objects.filter(acid__icontains=acidname)
+    #         print(">>>now we got a filter list")
+    #         for uu in latest_archives_list:
+    #             print(">>>items in the filter list: %s" % uu.acid)
+    # else:
+    #     latest_archives_list = ArchivesCases.objects.all()
+    acidname = request.GET.get('rtt')
+    print(">>>acidname: %s" % acidname)
+    if acidname:
+        latest_archives_list = ArchivesCases.objects.filter(acid__icontains=acidname)
+    else:
+        latest_archives_list = ArchivesCases.objects.all()
+        acidname = ''
 
     paginator = Paginator(latest_archives_list, 8, 2) # Show 8 contacts per page
 
@@ -170,7 +189,10 @@ def datalist(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         archives_list = paginator.page(paginator.num_pages)
 
-    context = {'latest_archives_list': archives_list}
+    context = {'latest_archives_list': archives_list,
+               'searchname':acidname}
+    for tt in archives_list:
+        print(">>>items in the paginator: %s" % tt.acid)
     return render(request, 'case001/datalist.html', context)
 
 @permission_required('case001.case001_operation', login_url="/case001/permhint")
