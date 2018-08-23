@@ -11,8 +11,8 @@
     数据导入成功！
 </div>
     <h5>对应的基本信息数据表的记录的主键值是 <span class="label label-default">{{ people_id }}</span>，您可以继续添加该记录的其它信息</h5>
-    <a class="btn btn-primary"  href="{% url 'case001:datainput1' people_id %}" >孕产情况</a>
-    <a class="btn btn-success"  href="{% url 'case001:datainput2' people_id %}" >哺乳情况</a>
+    <a class="btn btn-success"  href="{% url 'case001:datainput1' people_id %}" >孕产情况</a>
+    <a class="btn btn-primary"  href="{% url 'case001:datainput2' people_id %}" >哺乳情况</a>
     <a class="btn btn-info"  href="{% url 'case001:datainput3' people_id %}" >实验室乳汁分析</a>
     <a class="btn btn-warning"  href="{% url 'case001:datainput4' people_id %}" >中医诊断</a>
 

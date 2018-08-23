@@ -6,6 +6,7 @@ app_name = 'case001'
 urlpatterns = [
     path('', views.index, name='index'),
     path('datainput/', views.datainput, name='datainput'),
+    path('datamodify/<int:people_id>/', views.datamodify, name='datamodify'),
     path('datainput1/<int:people_id>/', views.datainput1, name='datainput1'),
     path('datainput2/<int:people_id>/', views.datainput2, name='datainput2'),
     path('datainput3/<int:people_id>/', views.datainput3, name='datainput3'),
