@@ -10,6 +10,7 @@ class ClinicalProjects(models.Model):
         (u'其他', u'其他'),
     )
     name = models.CharField(u'项目名称', max_length=100)
+    prj_code = models.CharField(u'项目内部代号', max_length=100, default=u'testing')
     status = models.CharField(u'项目状态',max_length=10, choices=STATUS)
     starttime = models.DateField(u'开始日期',max_length=12)
     endtime = models.DateField(u'结束日期',max_length=12)

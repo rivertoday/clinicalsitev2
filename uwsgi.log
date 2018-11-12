@@ -1,0 +1,170 @@
+*** Starting uWSGI 2.0.17 (64bit) on [Thu Aug 16 12:04:40 2018] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-28) on 15 August 2018 11:13:33
+os: Linux-3.10.0-514.6.2.el7.x86_64 #1 SMP Thu Feb 23 03:04:39 UTC 2017
+nodename: iZ2zei6kx1d8liard5yqwdZ
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/handian/clinicalsitev2
+writing pidfile to uwsgi.pid
+detected binary path: /usr/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/handian/clinicalsitev2
+your processes number limit is 3893
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :9010 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:44301 (port auto-assigned) fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 2.7.5 (default, Apr 11 2018, 07:36:10)  [GCC 4.8.5 20150623 (Red Hat 4.8.5-28)]
+Set PythonHome to /home/handian/p3host
+ImportError: No module named site
+*** Starting uWSGI 2.0.17 (64bit) on [Thu Aug 16 12:12:49 2018] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-28) on 15 August 2018 11:13:33
+os: Linux-3.10.0-514.6.2.el7.x86_64 #1 SMP Thu Feb 23 03:04:39 UTC 2017
+nodename: iZ2zei6kx1d8liard5yqwdZ
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/handian/clinicalsitev2
+writing pidfile to uwsgi.pid
+detected binary path: /usr/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/handian/clinicalsitev2
+your processes number limit is 3893
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :9010 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:42837 (port auto-assigned) fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 2.7.5 (default, Apr 11 2018, 07:36:10)  [GCC 4.8.5 20150623 (Red Hat 4.8.5-28)]
+Set PythonHome to /home/handian/p3host
+ImportError: No module named site
+*** Starting uWSGI 2.0.17.1 (64bit) on [Thu Aug 16 14:04:50 2018] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-28) on 16 August 2018 04:08:05
+os: Linux-3.10.0-514.6.2.el7.x86_64 #1 SMP Thu Feb 23 03:04:39 UTC 2017
+nodename: iZ2zei6kx1d8liard5yqwdZ
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/handian/clinicalsitev2
+writing pidfile to uwsgi.pid
+detected binary path: /home/handian/p3host/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/handian/clinicalsitev2
+your processes number limit is 3893
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :9010 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:36436 (port auto-assigned) fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.4.8 (default, Mar 23 2018, 10:04:27)  [GCC 4.8.5 20150623 (Red Hat 4.8.5-16)]
+Set PythonHome to /home/handian/p3host
+Python main interpreter initialized at 0x1c06080
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 218712 bytes (213 KB) for 2 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x1c06080 pid: 30202 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 30202)
+spawned uWSGI worker 1 (pid: 30204, cores: 1)
+spawned uWSGI worker 2 (pid: 30205, cores: 1)
+spawned uWSGI http 1 (pid: 30206)
+[pid: 30204|app: 0|req: 1/1] 58.132.200.132 () {40 vars in 757 bytes} [Thu Aug 16 14:05:03 2018] GET / => generated 1519 bytes in 48 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 0)
+[pid: 30205|app: 0|req: 1/2] 58.132.200.132 () {42 vars in 760 bytes} [Thu Aug 16 14:05:03 2018] GET /favicon.ico => generated 85 bytes in 39 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 30204|app: 0|req: 2/3] 58.132.200.132 () {48 vars in 943 bytes} [Thu Aug 16 14:05:11 2018] POST / => generated 1948 bytes in 598 msecs (HTTP/1.1 200) 6 headers in 409 bytes (1 switches on core 0)
+[pid: 30205|app: 0|req: 2/4] 58.132.200.132 () {40 vars in 837 bytes} [Thu Aug 16 14:05:15 2018] GET /case001/about => generated 0 bytes in 3 msecs (HTTP/1.1 301) 3 headers in 120 bytes (1 switches on core 0)
+[pid: 30204|app: 0|req: 3/5] 58.132.200.132 () {40 vars in 839 bytes} [Thu Aug 16 14:05:15 2018] GET /case001/about/ => generated 4656 bytes in 9 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+产后缺乳证
+经前期紧张综合症
+子宫内膜异位症
+多囊卵巢综合症
+子宫肌瘤
+[pid: 30204|app: 0|req: 4/6] 58.132.200.132 () {40 vars in 851 bytes} [Thu Aug 16 14:05:19 2018] GET /homepage/home => generated 1948 bytes in 7 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 30204|app: 0|req: 5/7] 58.132.200.132 () {40 vars in 853 bytes} [Thu Aug 16 14:05:43 2018] GET /accounts/logout => generated 975 bytes in 23 msecs (HTTP/1.1 200) 4 headers in 192 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 30206)
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.17.1 (64bit) on [Thu Aug 16 14:13:46 2018] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-28) on 16 August 2018 04:08:05
+os: Linux-3.10.0-514.6.2.el7.x86_64 #1 SMP Thu Feb 23 03:04:39 UTC 2017
+nodename: iZ2zei6kx1d8liard5yqwdZ
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/handian/clinicalsitev2
+writing pidfile to uwsgi.pid
+detected binary path: /home/handian/p3host/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/handian/clinicalsitev2
+your processes number limit is 3893
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:19010 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.4.8 (default, Mar 23 2018, 10:04:27)  [GCC 4.8.5 20150623 (Red Hat 4.8.5-16)]
+Set PythonHome to /home/handian/p3host
+Python main interpreter initialized at 0x2360f70
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 218712 bytes (213 KB) for 2 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x2360f70 pid: 30229 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 30229)
+spawned uWSGI worker 1 (pid: 30231, cores: 1)
+spawned uWSGI worker 2 (pid: 30232, cores: 1)
+[pid: 30231|app: 0|req: 1/1] 58.132.200.132 () {44 vars in 805 bytes} [Thu Aug 16 14:14:09 2018] GET / => generated 1519 bytes in 39 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 0)
+[pid: 30232|app: 0|req: 1/2] 58.132.200.132 () {46 vars in 809 bytes} [Thu Aug 16 14:14:09 2018] GET /favicon.ico => generated 85 bytes in 32 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 30231|app: 0|req: 2/3] 58.132.200.132 () {52 vars in 1072 bytes} [Thu Aug 16 14:14:15 2018] POST / => generated 1948 bytes in 132 msecs (HTTP/1.1 200) 6 headers in 409 bytes (1 switches on core 0)
+[pid: 30232|app: 0|req: 2/4] 58.132.200.132 () {44 vars in 885 bytes} [Thu Aug 16 14:14:16 2018] GET /case001/about => generated 0 bytes in 2 msecs (HTTP/1.1 301) 3 headers in 120 bytes (1 switches on core 0)
+[pid: 30232|app: 0|req: 3/5] 58.132.200.132 () {44 vars in 887 bytes} [Thu Aug 16 14:14:16 2018] GET /case001/about/ => generated 4656 bytes in 18 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 30231|app: 0|req: 3/6] 58.132.200.132 () {44 vars in 905 bytes} [Thu Aug 16 14:14:18 2018] GET /case001/datalist => generated 0 bytes in 3 msecs (HTTP/1.1 301) 3 headers in 123 bytes (1 switches on core 0)
+./case001/views.py:160: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'case001.models.ArchivesCases'> QuerySet.
+  paginator = Paginator(latest_archives_list, 8, 2) # Show 8 contacts per page
+[pid: 30232|app: 0|req: 4/7] 58.132.200.132 () {44 vars in 907 bytes} [Thu Aug 16 14:14:18 2018] GET /case001/datalist/ => generated 5532 bytes in 31 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 30231|app: 0|req: 4/8] 58.132.200.132 () {44 vars in 906 bytes} [Thu Aug 16 14:14:19 2018] GET /accounts/logout => generated 975 bytes in 12 msecs (HTTP/1.1 200) 4 headers in 192 bytes (1 switches on core 0)
+[pid: 30231|app: 0|req: 5/9] 58.132.200.132 () {42 vars in 774 bytes} [Thu Aug 16 14:14:52 2018] GET / => generated 1519 bytes in 4 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 0)
+[pid: 30232|app: 0|req: 5/10] 58.132.200.132 () {52 vars in 1072 bytes} [Thu Aug 16 14:14:57 2018] POST / => generated 1948 bytes in 118 msecs (HTTP/1.1 200) 6 headers in 409 bytes (1 switches on core 0)
+[pid: 30231|app: 0|req: 6/11] 58.132.200.132 () {44 vars in 887 bytes} [Thu Aug 16 14:14:58 2018] GET /case001/about/ => generated 4656 bytes in 7 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 30232|app: 0|req: 6/12] 58.132.200.132 () {44 vars in 907 bytes} [Thu Aug 16 14:14:59 2018] GET /case001/datalist/ => generated 5532 bytes in 12 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 30231|app: 0|req: 7/13] 58.132.200.132 () {44 vars in 910 bytes} [Thu Aug 16 14:14:59 2018] GET /case001/datainput => generated 0 bytes in 0 msecs (HTTP/1.1 301) 3 headers in 124 bytes (1 switches on core 0)
+[pid: 30231|app: 0|req: 8/14] 58.132.200.132 () {44 vars in 912 bytes} [Thu Aug 16 14:14:59 2018] GET /case001/datainput/ => generated 13080 bytes in 55 msecs (HTTP/1.1 200) 5 headers in 279 bytes (1 switches on core 0)
+[pid: 30232|app: 0|req: 7/15] 58.132.200.132 () {44 vars in 911 bytes} [Thu Aug 16 14:15:01 2018] GET /case001/datalist/ => generated 5532 bytes in 12 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 30231|app: 0|req: 9/16] 58.132.200.132 () {44 vars in 906 bytes} [Thu Aug 16 14:15:01 2018] GET /case001/dataana => generated 0 bytes in 0 msecs (HTTP/1.1 301) 3 headers in 122 bytes (1 switches on core 0)
+[pid: 30231|app: 0|req: 10/17] 58.132.200.132 () {44 vars in 908 bytes} [Thu Aug 16 14:15:01 2018] GET /case001/dataana/ => generated 5142 bytes in 10 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 30232|app: 0|req: 8/18] 58.132.200.132 () {44 vars in 903 bytes} [Thu Aug 16 14:15:02 2018] GET /case001/about/ => generated 4656 bytes in 6 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 30231|app: 0|req: 11/19] 58.132.200.132 () {44 vars in 903 bytes} [Thu Aug 16 14:15:04 2018] GET /accounts/logout => generated 975 bytes in 12 msecs (HTTP/1.1 200) 4 headers in 192 bytes (1 switches on core 0)

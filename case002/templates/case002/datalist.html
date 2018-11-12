@@ -1,0 +1,189 @@
+{% extends 'case002_base.html' %}
+
+{% block title %}数据展示{% endblock %}
+
+{% block content %}
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        a, img {
+            border: 0;
+        }
+
+        .demo {
+            width: 720px;
+            margin: 30px auto;
+            align: left
+        }
+
+        .demo li {
+            float: left;
+        }
+
+        .text {
+            width: 429px;
+            height: 22px;
+            padding: 4px 7px;
+            padding: 6px 7px 2px \9;
+            font: 16px arial;
+            border: 1px solid #cdcdcd;
+            border-color: #9a9a9a #cdcdcd #cdcdcd #9a9a9a;
+            vertical-align: top;
+            outline: none;
+            margin: 0 5px 0 0;
+        }
+
+        .button {
+            width: 95px;
+            height: 22px;
+            padding: 0;
+            padding-top: 2px \9;
+            border: 0;
+            background-position: 0 -35px;
+            background-color: #ddd;
+            cursor: pointer
+        }
+    </style>
+
+    <script type="text/javascript">
+        $.ajaxSetup({
+            data: {csrfmiddlewaretoken: '{{ csrf_token }}'},
+        });
+        $(function () {
+            $("#rtt").bigAutocomplete({
+                width: 543,
+                url: '/case002/suggestinfo1',
+                {% comment %}data:[{title:"中国好声音"},
+                    {title:"中国移动网上营业厅"},
+                    {title:"中国银行"},
+                    {title:"中国移动"},
+                    {title:"中国好声音第三期"},
+                    {title:"中国好声音 第一期"},
+                    {title:"中国电信网上营业厅"},
+                    {title:"中国工商银行"},
+                    {title:"中国好声音第二期"},
+                    {title:"中国地图"}],{% endcomment %}
+                callback: function (data) {
+                    //alert(data.title);
+                    document.getElementById("rtt").value = data.title;
+                }
+            });
+
+            {% comment %}$("#searchform").submit(function () {
+                var acidname = $("#rtt").val();
+                //alert(">>>" + acidname);
+                if (!acidname) {
+                    acidname = 'all';
+                }
+                $.ajax({
+                    url: "/case001/datalist/",
+                    type: "POST",
+                    data: {
+                        acidname: acidname,
+                    },
+                    success: function (rdata) {
+                        //rdata = JSON.parse(rdata);
+                        $("#myarchivelist").html(rdata);
+                        $("#rtt").val(acidname)
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert(errorThrown);
+                    }
+                });
+                return false;
+            }){% endcomment %}
+        });
+
+    </script>
+
+    <div class="demo">
+        <form role="form" method='get' action="/case002/datalist">
+{#            {% csrf_token %}#}
+            <ul>
+                <li><label>采集对象人员姓名：</label></li>
+                <li><input type="text" id="rtt" name="rtt" value="{{ searchname }}"  class="text"/></li>
+                <li><input type="submit" value="检索" class="button"/></li>
+            </ul>
+        </form>
+    </div>
+
+    <br/>
+
+    <div>
+    {% if latest_archives_list %}
+        <table class="table table-striped" id="myarchivelist">
+            <caption>调查数据</caption>
+            <thead>
+            <tr>
+                <th>姓名</th>
+                <th>民族</th>
+                <th>年龄</th>
+                <th>身高cm</th>
+                <th>体重kg</th>
+                <th>血型</th>
+                <th>职业</th>
+                <th>文化程度</th>
+                <th>婚姻状况</th>
+                <th>数据修改</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for archive in latest_archives_list %}
+                <tr>
+                    <td><a href="/case002/datadetail/{{ archive.id }}/">{{ archive.name }}</a></td>
+                    <td>{{ archive.nation }}</td>
+                    <td>{{ archive.age }}</td>
+                    <td>{{ archive.height }}</td>
+                    <td>{{ archive.weight }}</td>
+                    <td>{{ archive.blood_type }}</td>
+                    <td>{{ archive.career }}</td>
+                    <td>{{ archive.culture }}</td>
+                    <td>{{ archive.marriage }}</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="{% url 'case002:datamodify' archive.id %}">一般情况</a>
+                        <a class="btn btn-success btn-sm" href="{% url 'case002:datainput1' archive.id %}">月经情况</a>
+                        <a class="btn btn-primary btn-sm" href="{% url 'case002:datainput2' archive.id %}">全身症状</a>
+                        <a class="btn btn-info btn-sm" href="{% url 'case002:datainput3' archive.id %}">其它情况</a>
+                        <a class="btn btn-warning btn-sm" href="{% url 'case002:datainput4' archive.id %}">临床诊断</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                {% if latest_archives_list.has_previous %}
+                    <li>
+                        <a href="?page={{ latest_archives_list.previous_page_number }}" arial-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% for pg in latest_archives_list.paginator.page_range %}
+                    {% if latest_archives_list.number == pg %}
+                        <li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
+                    {% else %}
+                        <li><a href="?page={{ pg }}">{{ pg }}</a></li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if latest_archives_list.has_next %}
+                    <li>
+                        <a href="?page={{ latest_archives_list.next_page_number }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    {% else %}
+        <div class="alert alert-warning">目前尚没有数据！</div>
+    {% endif %}
+</div>
+{% endblock %}

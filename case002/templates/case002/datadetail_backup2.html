@@ -1,0 +1,71 @@
+{% extends 'case002_base.html' %}
+ 
+{% block title %}数据详情{% endblock %}
+
+
+
+{% block content %}
+    <style type="text/css">
+        #myinfodiv {background-color: #dedef8;box-shadow:
+             inset 1px -1px 1px #444, inset -1px 1px 1px #444;}
+    </style>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"  id="myinfodiv">
+            <table>
+            {% for key,value in baseinfo.items %}
+                <tr border-top-width="thin">
+                    <td>{{ key }}: </td>
+                    <td>{{ value }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+            </div>
+
+            <div class="col-md-2" id="myinfodiv">
+                <table>
+                {% for key,value in preginfo.items %}
+                    <tr border-top-width="thin">
+                        <td>{{ key }}: </td>
+                        <td>{{ value }}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+
+            <div class="col-md-2" id="myinfodiv">
+                <table>
+                {% for key,value in breedinfo.items %}
+                    <tr border-top-width="thin">
+                        <td>{{ key }}: </td>
+                        <td>{{ value }}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+
+            <div class="col-md-2" id="myinfodiv">
+                <table>
+                {% for key,value in labinfo.items %}
+                    <tr border-top-width="thin">
+                        <td>{{ key }}: </td>
+                        <td>{{ value }}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+
+            <div class="col-md-3" id="myinfodiv">
+                <table>
+                {% for key,value in thconinfo.items %}
+                    <tr border-top-width="thin">
+                        <td>{{ key }}: </td>
+                        <td>{{ value }}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
