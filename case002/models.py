@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+import datetime
 
 # Create your models here.
 
@@ -109,7 +110,7 @@ class GeneralInfo(models.Model):
         (u'离婚', u'离婚'),
     )
 
-    recdate = models.DateField(verbose_name=u'日期', blank=True,default=date.today)
+    recdate = models.DateField(verbose_name=u'日期', blank=True,default=datetime.date.today)
     serial = models.CharField(verbose_name=u'问卷编码',max_length=50)
     hospital = models.CharField(verbose_name=u'医院名称',max_length=100)
     expert = models.CharField(verbose_name=u'填表专家姓名',max_length=50)
@@ -329,7 +330,7 @@ class SymptomEyes(models.Model):
         verbose_name = u'眼部状况'
 
 #全身症状-耳
-class SymptomEar(models.modle):
+class SymptomEar(models.Model):
     erming = models.BooleanField(verbose_name=u'耳鸣')
     erlong = models.BooleanField(verbose_name=u'耳聋')
     tinglibq = models.BooleanField(verbose_name=u'听力不清，声音重复')
@@ -341,7 +342,7 @@ class SymptomEar(models.modle):
 
 
 #全身症状-咽喉
-class SymptomThroat(models.modle):
+class SymptomThroat(models.Model):
     zhengchang = models.BooleanField(verbose_name=u'正常')
     yangan = models.BooleanField(verbose_name=u'咽干')
     yantong = models.BooleanField(verbose_name=u'咽痛')
@@ -354,7 +355,7 @@ class SymptomThroat(models.modle):
         verbose_name = u'咽喉状况'
 
 #全身症状-口味
-class SymptomBreath(models.modle):
+class SymptomBreath(models.Model):
     wuyiwei = models.BooleanField(verbose_name=u'口中无异味')
     kouku = models.BooleanField(verbose_name=u'口苦')
     kougan = models.BooleanField(verbose_name=u'口干')
@@ -371,7 +372,7 @@ class SymptomBreath(models.modle):
 
 
 #全身症状-饮食
-class SymptomDiet(models.modle):
+class SymptomDiet(models.Model):
     nadaishishao = models.BooleanField(verbose_name=u'纳呆食少')
     shiyuws = models.BooleanField(verbose_name=u'食欲旺盛，多食易饥')
     yanshi = models.BooleanField(verbose_name=u'厌食')
@@ -391,7 +392,7 @@ class SymptomDiet(models.modle):
         verbose_name = u'饮食状况'
 
 #全身症状-睡眠
-class SymptomSleep(models.modle):
+class SymptomSleep(models.Model):
     zhengchang = models.BooleanField(verbose_name=u'正常')
     yiban = models.BooleanField(verbose_name=u'一般')
     duomengyixing = models.BooleanField(verbose_name=u'多梦易醒')
@@ -406,7 +407,7 @@ class SymptomSleep(models.modle):
         verbose_name = u'睡眠状况'
 
 #全身症状-大便
-class SymptomStool(models.modle):
+class SymptomStool(models.Model):
     sehuang = models.BooleanField(verbose_name=u'色黄，通畅，成形不干燥')
     bianmi = models.BooleanField(verbose_name=u'便秘')
     zhixi = models.BooleanField(verbose_name=u'质稀')
@@ -425,7 +426,7 @@ class SymptomStool(models.modle):
 
 
 #全身症状-小便
-class SymptomUrine(models.modle):
+class SymptomUrine(models.Model):
     zhengchang = models.BooleanField(verbose_name=u'正常')
     duanchi = models.BooleanField(verbose_name=u'短赤')
     duanhuang = models.BooleanField(verbose_name=u'短黄')
@@ -444,7 +445,7 @@ class SymptomUrine(models.modle):
         verbose_name = u'小便状况'
 
 #全身症状-四肢
-class SymptomLimb(models.modle):
+class SymptomLimb(models.Model):
     zhengchang = models.BooleanField(verbose_name=u'正常')
     wuli = models.BooleanField(verbose_name=u'无力')
     mamu = models.BooleanField(verbose_name=u'麻木')
@@ -461,7 +462,7 @@ class SymptomLimb(models.modle):
         verbose_name = u'四肢状况'
 
 #全身症状-其他
-class SymptomOther(models.modle):
+class SymptomOther(models.Model):
     wu = models.BooleanField(verbose_name=u'无')
     czjdanbai = models.BooleanField(verbose_name=u'唇爪甲淡白')
     xyjiantui = models.BooleanField(verbose_name=u'性欲减退')
@@ -472,7 +473,7 @@ class SymptomOther(models.modle):
         verbose_name = u'其他状况'
 
 #全身症状-舌质
-class SymptomTtexture(models.modle):
+class SymptomTtexture(models.Model):
     danhong = models.BooleanField(verbose_name=u'淡红')
     danbai = models.BooleanField(verbose_name=u'淡白')
     pianhong = models.BooleanField(verbose_name=u'偏红')
@@ -486,7 +487,7 @@ class SymptomTtexture(models.modle):
         verbose_name = u'舌质状况'
 
 #全身症状-舌苔
-class SymptomCoating(models.modle):
+class SymptomCoating(models.Model):
     bai = models.BooleanField(verbose_name=u'白')
     huang = models.BooleanField(verbose_name=u'黄')
     ni = models.BooleanField(verbose_name=u'腻')
@@ -507,7 +508,7 @@ class SymptomCoating(models.modle):
         verbose_name = u'舌苔状况'
 
 # 全身症状-舌体
-class SymptomTongue(models.modle):
+class SymptomTongue(models.Model):
     shoubo = models.BooleanField(verbose_name=u'瘦薄')
     pangda = models.BooleanField(verbose_name=u'胖大')
     bianjianhong = models.BooleanField(verbose_name=u'边尖红')
@@ -520,7 +521,7 @@ class SymptomTongue(models.modle):
         verbose_name = u'舌体状况'
 
 #全身症状-脉象
-class SymptomPulse(models.modle):
+class SymptomPulse(models.Model):
     shi = models.BooleanField(verbose_name=u'实')
     fu = models.BooleanField(verbose_name=u'浮')
     chen = models.BooleanField(verbose_name=u'沉')

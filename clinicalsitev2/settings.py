@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-q-*w_b1&6zi4)1=xq6_i&!meldok4b9ov3k7eoejjnfq+*-jq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False #在正式环境下，这里需要设置成False
+DEBUG = True #在正式环境下，这里需要设置成False
 
 ALLOWED_HOSTS = ['*']
 
@@ -81,13 +81,17 @@ WSGI_APPLICATION = 'clinicalsitev2.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'clinicaldatav2',
+    #     'USER': 'jianghe',
+    #     'PASSWORD': 'river777',
+    #     'HOST': '127.0.0.1',
+    #     'PORT': 3306,
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'clinicaldatav2',
-        'USER': 'jianghe',
-        'PASSWORD': 'river777',
-        'HOST': '127.0.0.1',
-        'PORT': 3306,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -128,7 +132,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'common_static') #生产环境下才注释掉，注意项目根目录的文件夹名称要一致
+STATIC_ROOT = os.path.join(BASE_DIR, 'common_static') #生产环境下才注释掉，注意项目根目录的文件夹名称要一致
 
 # STATICFILES_DIRS=(os.path.join(BASE_DIR, 'collect_static'),)
 
